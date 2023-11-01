@@ -1,0 +1,95 @@
+---
+title: "Assignment B1 Iman Mir"
+output: github_document
+---
+## Installation and Setup 
+In order to create the function, I used the R packages of dplyr,tidyverse, devtools and datateachr. 
+
+```{r}
+library(devtools)
+library(dplyr)
+library(datateachr)
+library(testthat)
+```
+
+## Exercise 1: Make a Function 
+```{r}
+counter <- function(df, group_var) {
+     df |>
+    group_by({{ group_var }}) |>
+    summarise(n = n())}
+```
+
+This function at a high level counts the number of different data points in a group within a data frame. The objects it expects you to input is a dataframe and a group variable within the same function. The object that the function outputs is a tibble with the group, the data points and the count of each data point. 
+
+## Exercise 2: Document Function 
+```{r}
+#' Counts number of different vairables within a group. This is an important #' function that can be used for dataframe analyses as it determines which #' variables are the most or least abundant in a group. 
+#'
+#' @param df A dataframe with different groups.
+#' @param group_var The group of interest.
+#'
+#' @return A tibble.
+#' @export
+
+counter <- function(df, group_var) {
+     df |>
+    group_by({{ group_var }}) |>
+    summarise(n = n())}
+```
+
+## Exercise 3: Function Examples 
+```{r}
+#Example 1 
+counter(vancouver_trees, height_range_id )
+```
+This tibble shows the number of counts per herigh range id. This would have been a helpful function to use when I was completing my mini data analysis deliverable 2 as I had to wrtie out the same format of variables mjultiple times and it was not efficent. 
+
+```{r}
+# Example 2
+counter(vancouver_trees, cultivar_name )
+```
+Alongside the cultivar names, the tibble also shows the number of trees that are not accounted for without a cultivar in the NA category. 
+
+
+```{r}
+# Example 3
+counter(vancouver_trees, genus_name )
+```
+This tibble is also interesting as the count between the different genus's shows the major differences in the types of trees found within vancouver. For example, the ACER genus has up to 26062 trees in vancouver (from this dataset) while ALBIZIA only has 1. 
+
+## Excercise #4 : Test Function
+
+```{r}
+# Test #1 -> Groups without NA
+answer_1 <- vancouver_trees %>%
+  group_by(species_name ) %>%
+  summarise(n = n())
+
+test_that("Test that counter works with group with no NA", {
+  expect_equal(counter(vancouver_trees, species_name), answer_1)
+})
+
+
+# Test #2 -> Groups with NA
+answer_2 <- vancouver_trees %>%
+  group_by(longitude ) %>%
+  summarise(n = n())
+
+test_that("Test that counter works with group with  NA", {
+  expect_equal(counter(vancouver_trees, longitude), answer_2)
+})
+
+
+# Test #3 -> Groups of different type (date format)
+answer_3 <- vancouver_trees %>%
+  group_by(date_planted ) %>%
+  summarise(n = n())
+
+test_that("Test that counter works with group with  NA", {
+  expect_equal(counter(vancouver_trees, date_planted), answer_3)
+})
+```
+
+For each of the tests I created an answer variable with the answer of th question completed without the counter function. 
+
