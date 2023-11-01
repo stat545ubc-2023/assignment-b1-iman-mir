@@ -18,7 +18,6 @@ A tibble.
 Counts Data Points in Data Frame Group
 }
 \examples{
-library(datateachr)
 counter(vancouver_trees, height_range_id )
 counter(vancouver_trees, cultivar_name )
 counter(vancouver_trees, genus_name )

@@ -44,7 +44,7 @@ devtools::install_github("stat545ubc-2023/assignment-b1-iman-mir")
 This is a basic example which shows you how to solve a common problem:
 
 ```{r example}
-## basic example code
+#basic example code
 library(counter)
 counter(vancouver_trees, height_range_id)
 ```
