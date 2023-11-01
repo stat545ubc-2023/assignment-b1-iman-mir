@@ -1,10 +1,15 @@
 Package: counter
-Title: What the Package Does (One Line, Title Case)
+Title: Counts Data Points in Data Frame Group
 Version: 0.0.0.9000
 Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+    person("Iman", "Mir", , "imanmir@student.ubc.ca", role = c("aut", "cre"),
+           )
+Description: This function at a high level counts the number of 
+different data points in a group within a data frame. 
+The objects it expects you to input is a dataframe and
+a group variable within the same function. The object that
+the function outputs is a tibble with the group, the data points 
+and the count of each data point.
 License: `use_mit_license()`, `use_gpl3_license()` or friends to pick a
     license
 Encoding: UTF-8
