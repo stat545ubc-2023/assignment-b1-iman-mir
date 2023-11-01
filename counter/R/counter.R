@@ -14,4 +14,4 @@
 counter <- function(df, group_var) {
      df |>
     group_by({{ group_var }}) |>
-    summarize(n = n())}
+    summarise(n = n())}
