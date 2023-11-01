@@ -1,10 +1,14 @@
+# Loading libraries
+library(datateachr)
+library(dplyr)
+
 # Test #1 -> Groups without NA
 answer_1 <- vancouver_trees %>%
-  group_by(height_range_id ) %>%
+  group_by(species_name ) %>%
   summarise(n = n())
 
 test_that("Test that counter works with group with no NA", {
-  expect_equal(counter(vancouver_trees, height_range_id), answer_1)
+  expect_equal(counter(vancouver_trees, species_name), answer_1)
 })
 
 
