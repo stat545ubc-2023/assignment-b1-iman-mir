@@ -4,8 +4,8 @@
 #' @param group_var The group of interest.
 #'
 #' @return A tibble.
-#' @importFrom dplyr group_by summarise
 #' @export
+#'
 #' @examples
 #' counter(vancouver_trees, height_range_id )
 #' counter(vancouver_trees, cultivar_name )
