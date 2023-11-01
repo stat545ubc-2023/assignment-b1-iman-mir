@@ -1,0 +1,51 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# counter
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of counter is to determine the count of different data points in a group within a data frame. 
+
+In order to create the function, I used the R packages of dplyr,tidyverse, devtools and datateachr. 
+
+## Installation
+
+You can install the development version of counter from [GitHub](https://github.com/) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("stat545ubc-2023/assignment-b1-iman-mir")
+
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example}
+## basic example code
+library(counter)
+counter(vancouver_trees, genus_name)
+```
+
+## Files explanation 
+1. The description file provides metadata about the counter package
+2. The namespace file is the package export for external use and the external functions the counter package imports from other packages
+3. The man file contains the counter.rd file with the function definition
+4. The R file contains the counter.R file with the function definition
+5. The tests and nested testthat file contains test-counter.R which is a file with different tests of the counter function 
+
